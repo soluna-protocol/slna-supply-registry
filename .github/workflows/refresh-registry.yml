@@ -11,7 +11,7 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    name: Refresh Soluna Rebase Registry
+    name: Refresh Slna Circulating Supply Registry
 
     steps:
       - uses: actions/checkout@v2
