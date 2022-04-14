@@ -1,6 +1,6 @@
-# `sencha-registry`
+# `slna-supply-registry`
 
-Fetches and caches all known Sencha pools.
+Fetches and caches the supply and circulating supply of SLNA.
 
 ## Usage
 

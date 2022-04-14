@@ -1,10 +1,10 @@
 {
-  "name": "@senchahq/sencha-registry",
+  "name": "@soluna-procotol/slna-supply-registry",
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:senchahq/sencha-registry.git",
-  "author": "Johanna Johansson <jj@sencha.so>",
+  "repository": "git@github.com:soluna-protocol/slna-supply-registry.git",
+  "author": "Kyle Scott <kyscott@umich.edu",
   "license": "AGPL-3.0",
   "packageManager": "yarn@3.1.1",
   "devDependencies": {
@@ -15,8 +15,6 @@
     "@types/lodash": "^4.14.177",
     "@types/node": "^16.11.10",
     "@types/prettier": "^2.4.2",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
     "eslint": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-import": "^2.25.3",
@@ -28,8 +26,6 @@
   },
   "dependencies": {
     "@ethersproject/bignumber": "^5.6.0",
-    "@project-serum/anchor": "^0.24.2",
-    "@saberhq/anchor-contrib": "^1.12.59",
     "@saberhq/sail": "^3.4.1",
     "@saberhq/solana-contrib": "^1.12.59",
     "@saberhq/token-utils": "^1.12.59",
@@ -43,8 +39,6 @@
     "jsbi": "^4.2.1",
     "lodash": "^4.17.21",
     "long": "^5.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "react-query": "^3.34.19",
     "tiny-invariant": "^1.2.0"
   },
