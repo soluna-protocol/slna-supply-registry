@@ -1,7 +1,7 @@
 import { SignerWallet, SolanaProvider } from "@saberhq/solana-contrib";
 import {
   deserializeAccount,
-  deserializeMint,
+  getMintInfo,
   Token,
   TokenAmount,
 } from "@saberhq/token-utils";
@@ -27,11 +27,16 @@ export const fetchSupply = async (): Promise<void> => {
   });
   const SLNA = Token.fromMint("SLNAAQ8VT6DRDc3W9UPDjFyRt7u4mzh8Z4WYMDjJc35", 6);
 
-  const meta = await provider.getAccountInfo(SLNA.mintAccount);
-  invariant(meta);
-  const metaInfo = deserializeMint(meta.accountInfo.data);
+  const solUST = Token.fromMint(
+    "JAa3gQySiTi8tH3dpkvgztJWHQC1vGXr5m6SQ9LEM55T",
+    6
+  );
 
-  const supply = new TokenAmount(SLNA, metaInfo.supply);
+  const slnaMintData = await getMintInfo(provider, SLNA.mintAccount);
+  const solustMintData = await getMintInfo(provider, solUST.mintAccount);
+
+  const slnaSupply = new TokenAmount(SLNA, slnaMintData.supply);
+  const solustSupply = new TokenAmount(solUST, solustMintData.supply);
 
   const teamLock = await tokenBalance(
     provider,
@@ -51,22 +56,28 @@ export const fetchSupply = async (): Promise<void> => {
     new PublicKey("Cf7bkB97ncbN4dS97jopyHbPftmiYmcqPwq4vPmRwtz8")
   );
 
-  const circulatingSupply = supply
+  const circulatingSupply = slnaSupply
     .subtract(team)
     .subtract(teamLock)
     .subtract(unclaimedAirdrop);
 
   await fs.writeFile(
     "data/supply.json",
-    JSON.stringify(supply.asNumber, null, 2)
+    JSON.stringify(slnaSupply.asNumber, null, 2)
   );
 
   await fs.writeFile(
     "data/circulatingSupply.json",
     JSON.stringify(circulatingSupply.asNumber, null, 2)
   );
+
+  await fs.writeFile(
+    "data/solustSupply.json",
+    JSON.stringify(solustSupply.asNumber, null, 2)
+  );
+
   console.log(
-    `Supply is ${supply.asNumber} and circulating supply is ${circulatingSupply.asNumber}`
+    `solust supply is ${solustSupply.asNumber}, SLNA supply is ${slnaSupply.asNumber} and SLNA circulating supply is ${circulatingSupply.asNumber}`
   );
 };
 
