@@ -15,8 +15,6 @@
     "@types/lodash": "^4.14.182",
     "@types/node": "^17.0.30",
     "@types/prettier": "^2.6.0",
-    "@types/react": "^18.0.8",
-    "@types/react-dom": "^18.0.3",
     "eslint": "^8.14.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-import": "^2.26.0",
@@ -30,7 +28,6 @@
     "@ethersproject/bignumber": "^5.6.0",
     "@project-serum/anchor": "^0.24.2",
     "@saberhq/anchor-contrib": "^1.12.71",
-    "@saberhq/sail": "^3.4.4",
     "@saberhq/solana-contrib": "^1.12.71",
     "@saberhq/token-utils": "^1.12.71",
     "@saberhq/use-solana": "^1.12.71",
@@ -43,9 +40,6 @@
     "jsbi": "^4.3.0",
     "lodash": "^4.17.21",
     "long": "^5.2.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-query": "^3.38.0",
     "tiny-invariant": "^1.2.0"
   },
   "scripts": {
